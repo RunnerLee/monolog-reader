@@ -1,0 +1,17 @@
+{
+    "name": "runner/logger-reader",
+    "authors": [
+        {
+            "name": "runnerlee",
+            "email": "runnerleer@gmail.com"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "^5.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Runner\\": "src/"
+        }
+    }
+}
