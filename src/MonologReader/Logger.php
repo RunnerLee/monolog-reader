@@ -72,10 +72,13 @@ class Logger implements \Iterator
         list($date, $logger, $level, $message, $context, $extra) = $match;
         unset($match);
 
+        $context = json_decode($context, true);
+        $extra   = json_decode($extra, true);
+
         if(!is_null($this->parser)) {
             $message = $this->parser->messageHandle($message);
-            $context = $this->parser->messageHandle($context = json_decode($context, true));
-            $extra   = $this->parser->messageHandle($extra   = json_decode($extra, true));
+            $context = $this->parser->messageHandle($context);
+            $extra   = $this->parser->messageHandle($extra);
         }
 
         return [
