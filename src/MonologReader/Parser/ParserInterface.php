@@ -5,7 +5,7 @@
  * @time: 16-5-27 下午5:24
  */
 
-namespace Runner\LoggerReader\Parser;
+namespace Runner\MonologReader\Parser;
 
 interface ParserInterface
 {

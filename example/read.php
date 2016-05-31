@@ -7,7 +7,7 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 
-$reader = new \Runner\LoggerReader\Reader();
+$reader = new \Runner\MonologReader\Reader();
 
 foreach($reader->load(__DIR__ . '/data/access.log') as $v) {
     print_r($v);

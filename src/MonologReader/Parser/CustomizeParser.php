@@ -5,7 +5,7 @@
  * @time: 16-5-27 下午6:13
  */
 
-namespace Runner\LoggerReader\Parser;
+namespace Runner\MonologReader\Parser;
 
 class CustomizeParser implements ParserInterface
 {

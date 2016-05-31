@@ -6,7 +6,7 @@
  */
 require __DIR__ . '/../vendor/autoload.php';
 
-$customizeParser = new \Runner\LoggerReader\Parser\CustomizeParser();
+$customizeParser = new \Runner\MonologReader\Parser\CustomizeParser();
 
 $customizeParser->setContextCallback(function(array $v) {
     return 'this is context';
@@ -20,7 +20,7 @@ $customizeParser->setMessageCallBack(function($v) {
     return 'this is message';
 });
 
-$reader = (new \Runner\LoggerReader\Reader())->setParser($customizeParser);
+$reader = (new \Runner\MonologReader\Reader())->setParser($customizeParser);
 
 foreach($reader->load(__DIR__ . '/data/access.log') as $v) {
     print_r($v);

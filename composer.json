@@ -1,5 +1,5 @@
 {
-    "name": "runner/logger-reader",
+    "name": "runner/monolog-reader",
     "authors": [
         {
             "name": "runnerlee",

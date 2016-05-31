@@ -2,7 +2,7 @@
 
 ### Basic Usage
 ```
-use MMC\LoggerReader\Reader;
+use Runner\MonologReader\Reader;
 
 $reader = new Reader();
 

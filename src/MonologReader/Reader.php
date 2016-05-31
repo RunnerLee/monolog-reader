@@ -4,9 +4,9 @@
  * @email: runnerleer@gmail.com
  * @time: 16-5-27 下午5:01
  */
-namespace Runner\LoggerReader;
+namespace Runner\MonologReader;
 
-use Runner\LoggerReader\Parser\ParserInterface;
+use Runner\MonologReader\Parser\ParserInterface;
 
 class Reader
 {

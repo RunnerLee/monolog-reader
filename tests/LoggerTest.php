@@ -4,9 +4,9 @@
  * @email: runnerleer@gmail.com
  * @time: 16-5-27 下午6:44
  */
-namespace Runner\LoggerReader\Test;
+namespace Runner\MonologReader\Test;
 
-use Runner\LoggerReader\Reader;
+use Runner\MonologReader\Reader;
 
 class LoggerTest extends \PHPUnit_Framework_TestCase
 {
@@ -17,7 +17,7 @@ class LoggerTest extends \PHPUnit_Framework_TestCase
 
         $row = $logger->load(__DIR__ . '/../example/data/access.log')->current();
 
-        $this->assertEquals('ERROR', $row['level']);
+        $this->assertEquals('INFO', $row['level']);
     }
 
 }
