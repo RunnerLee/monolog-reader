@@ -56,19 +56,26 @@ class Logger implements \Iterator
     protected function parseRow($row)
     {
         $match = null;
-        preg_match($this->pattern, $row, $match);
+
+        if(0 === preg_match($this->pattern, $row, $match)) {
+            return [
+                'date'    => '',
+                'logger'  => '',
+                'level'   => '',
+                'message' => '',
+                'context' => '',
+                'extra'   => '',
+            ];
+        }
 
         array_shift($match);
-
         list($date, $logger, $level, $message, $context, $extra) = $match;
-
-        $context = json_decode($context, true);
-        $extra   = json_decode($extra, true);
+        unset($match);
 
         if(!is_null($this->parser)) {
             $message = $this->parser->messageHandle($message);
-            $context = $this->parser->messageHandle($context);
-            $extra   = $this->parser->messageHandle($extra);
+            $context = $this->parser->messageHandle($context = json_decode($context, true));
+            $extra   = $this->parser->messageHandle($extra   = json_decode($extra, true));
         }
 
         return [
@@ -114,7 +121,7 @@ class Logger implements \Iterator
      */
     public function valid()
     {
-        return $this->file->valid();
+        return (!$this->file->eof() && "\n" != $this->file->current() && !empty($this->file->current()));
     }
 
 
