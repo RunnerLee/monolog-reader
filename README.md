@@ -1,5 +1,10 @@
 # logger-reader
 
+### Install
+```
+composer -vvv require runner/monolog-reader
+```
+
 ### Basic Usage
 ```
 use Runner\MonologReader\Reader;

@@ -1,5 +1,8 @@
 {
     "name": "runner/monolog-reader",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "description": "log reader for monolog",
     "authors": [
         {
             "name": "runnerlee",
@@ -7,7 +10,7 @@
         }
     ],
     "require": {
-        "phpunit/phpunit": "^5.3"
+        "phpunit/phpunit": "^5.0"
     },
     "autoload": {
         "psr-4": {
