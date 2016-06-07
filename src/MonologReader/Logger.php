@@ -26,6 +26,11 @@ class Logger implements \Iterator
      */
     protected $pattern = '/\[([\d\s:\-]+)\]\s(\w+)\.(\w+)\:\s(.*?)\s([\[\{].*?[\]\}])\s([\[\{].*?[\]\}])/';
 
+    /**
+     * @var string
+     */
+    protected $row;
+
 
     /**
      * Logger constructor.
@@ -97,7 +102,7 @@ class Logger implements \Iterator
      */
     public function current()
     {
-        return $this->parseRow($this->file->current());
+        return $this->parseRow($this->row);
     }
 
 
@@ -124,7 +129,9 @@ class Logger implements \Iterator
      */
     public function valid()
     {
-        return (!$this->file->eof() && "\n" != $this->file->current() && !empty($this->file->current()));
+        $this->row = $this->file->current();
+
+        return ("\n" != $this->row && !empty($this->row));
     }
 
 
