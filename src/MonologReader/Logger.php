@@ -36,7 +36,7 @@ class Logger implements \Iterator
      * Logger constructor.
      * @param \SplFileObject $splFileObject
      */
-    public function __construct(\SplFileObject $splFileObject)
+    public function __construct(\SplFileObject $splFileObject = null)
     {
         $this->file = $splFileObject;
     }
@@ -58,18 +58,18 @@ class Logger implements \Iterator
      * @param string $row
      * @return array
      */
-    protected function parseRow($row)
+    public function parseRow($row)
     {
         $match = null;
 
-        if(0 === preg_match($this->pattern, $row, $match)) {
+        if (0 === preg_match($this->pattern, $row, $match)) {
             return [
-                'date'    => '',
-                'logger'  => '',
-                'level'   => '',
+                'date' => '',
+                'logger' => '',
+                'level' => '',
                 'message' => '',
                 'context' => '',
-                'extra'   => '',
+                'extra' => '',
             ];
         }
 
@@ -78,21 +78,21 @@ class Logger implements \Iterator
         unset($match);
 
         $context = json_decode($context, true);
-        $extra   = json_decode($extra, true);
+        $extra = json_decode($extra, true);
 
-        if(!is_null($this->parser)) {
+        if (!is_null($this->parser)) {
             $message = $this->parser->messageHandle($message);
             $context = $this->parser->messageHandle($context);
-            $extra   = $this->parser->messageHandle($extra);
+            $extra = $this->parser->messageHandle($extra);
         }
 
         return [
-            'date'    => strtotime($date),
-            'logger'  => $logger,
-            'level'   => $level,
+            'date' => strtotime($date),
+            'logger' => $logger,
+            'level' => $level,
             'message' => $message,
             'context' => $context,
-            'extra'   => $extra,
+            'extra' => $extra,
         ];
     }
 
