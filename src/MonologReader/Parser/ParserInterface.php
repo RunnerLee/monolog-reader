@@ -7,30 +7,16 @@
 
 namespace Runner\MonologReader\Parser;
 
+/**
+ * Interface ParserInterface
+ * @package Runner\MonologReader\Parser
+ */
 interface ParserInterface
 {
-
-    public function __construct();
-
-
     /**
-     * @param string $message
-     * @return mixed
+     * @param $row
+     * @param $index
+     * @return array
      */
-    public function messageHandle($message);
-
-
-    /**
-     * @param string $context
-     * @return mixed
-     */
-    public function contextHandle($context);
-
-
-    /**
-     * @param string $extra
-     * @return mixed
-     */
-    public function extraHandle($extra);
-
+    public function parse($row, $index);
 }

@@ -6,14 +6,15 @@
  */
 namespace Runner\MonologReader\Test;
 
+
 use Runner\MonologReader\Reader;
 
 class LoggerTest extends \PHPUnit_Framework_TestCase
 {
-
-    public function testAccessLog()
+    public function testParseFile()
     {
-        
+        $reader = new Reader();
+        $logs = $reader->readFile(__DIR__ . '/file.log');
+        $this->assertEquals(153, count($logs));
     }
-
 }
