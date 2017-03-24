@@ -18,7 +18,7 @@ use LogicException;
  */
 class DefaultParser implements ParserInterface
 {
-    const REGEX = '/\[(?P<date>.*)\] (?P<logger>[\/_a-zA-Z0-9-]+).(?P<level>\w+): (?P<message>[^\[\{]+) (?P<context>[^ ]+) (?P<extra>[\[\{].*[\]\}])/';
+    const REGEX = '/\[(?P<date>.*)\] (?P<logger>[\/_a-zA-Z0-9-]+).(?P<level>\w+): (?P<message>[^\[\{]+) (?P<context>[\[\{].*[\]\}]) (?P<extra>[\[\{].*[\]\}])/';
 
     /**
      * @param $row
