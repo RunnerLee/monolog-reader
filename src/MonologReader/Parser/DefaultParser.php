@@ -37,7 +37,7 @@ class DefaultParser implements ParserInterface
             'level' => $matches['level'],
             'message' => $matches['message'],
             'context' => !empty($matches['context']) ? json_decode($matches['context'], true) : [],
-            'extra' => $matches['extra'],
+            'extra' => !empty($matches['extra']) ? json_decode($matches['extra'], true) : [],
         ];
     }
 }
