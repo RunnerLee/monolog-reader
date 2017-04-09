@@ -7,10 +7,10 @@
  * @link      http://www.fast-d.cn/
  */
 
-namespace Runner\MonologReader\Parser;
-
+namespace Runner\MonologReader\Parsers;
 
 use LogicException;
+use Runner\MonologReader\Exceptions\ParseException;
 
 /**
  * Class DefaultParser
@@ -22,22 +22,21 @@ class DefaultParser implements ParserInterface
 
     /**
      * @param $row
-     * @param int $index
-     * @return array
+     * @return array|bool
      */
-    public function parse($row, $index = 0)
+    public function parse($row)
     {
         if (0 === preg_match(static::REGEX, $row, $matches)) {
-            throw new LogicException('Row parse exception line in ' . $index);
+            return false;
         }
 
         return [
-            'date' => $matches['date'],
-            'logger' => $matches['logger'],
-            'level' => $matches['level'],
+            'date'    => $matches['date'],
+            'logger'  => $matches['logger'],
+            'level'   => $matches['level'],
             'message' => $matches['message'],
             'context' => !empty($matches['context']) ? json_decode($matches['context'], true) : [],
-            'extra' => !empty($matches['extra']) ? json_decode($matches['extra'], true) : [],
+            'extra'   => !empty($matches['extra']) ? json_decode($matches['extra'], true) : [],
         ];
     }
 }

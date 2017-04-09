@@ -10,7 +10,7 @@
 namespace Runner\MonologReader\Test;
 
 
-use Runner\MonologReader\Parser\DefaultParser;
+use Runner\MonologReader\Parsers\DefaultParser;
 
 
 class DefaultParserTest extends \PHPUnit_Framework_TestCase

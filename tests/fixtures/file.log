@@ -1,4 +1,4 @@
-[2017-03-08 23:29:36] fast-d.ERROR: GET /not/found {"statusCode":404,"params":{"get":[],"post":[]}} []
+[2017-03-08 23:29:36] fast-d.ERROR: GET /not/found {"statusCode":405,"params":{"get":[],"post":[]}} []
 [2017-03-08 23:30:01] fast-d.ERROR: GET /not/found {"statusCode":404,"params":{"get":[],"post":[]}} []
 [2017-03-08 23:30:10] fast-d.ERROR: GET /not/found {"statusCode":404,"params":{"get":[],"post":[]}} []
 [2017-03-08 23:30:51] fast-d.ERROR: GET /not/found {"statusCode":404,"params":{"get":[],"post":[]}} []

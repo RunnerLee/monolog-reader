@@ -5,7 +5,7 @@
  * @time: 16-5-27 下午5:24
  */
 
-namespace Runner\MonologReader\Parser;
+namespace Runner\MonologReader\Parsers;
 
 /**
  * Interface ParserInterface
@@ -14,9 +14,8 @@ namespace Runner\MonologReader\Parser;
 interface ParserInterface
 {
     /**
-     * @param $row
-     * @param $index
-     * @return array
+     * @param string $row
+     * @return array|bool
      */
-    public function parse($row, $index);
+    public function parse($row);
 }
