@@ -9,12 +9,8 @@
 
 namespace Runner\MonologReader\Parsers;
 
-use LogicException;
-use Runner\MonologReader\Exceptions\ParseException;
-
 /**
- * Class DefaultParser
- * @package Runner\MonologReader\Parser
+ * Class DefaultParser.
  */
 class DefaultParser implements ParserInterface
 {
@@ -22,6 +18,7 @@ class DefaultParser implements ParserInterface
 
     /**
      * @param $row
+     *
      * @return array|bool
      */
     public function parse($row)

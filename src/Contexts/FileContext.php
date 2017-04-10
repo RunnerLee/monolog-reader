@@ -10,12 +10,10 @@ namespace Runner\MonologReader\Contexts;
 use SplFileObject;
 
 /**
- * Class FileContext
- * @package Runner\MonologReader\Contexts
+ * Class FileContext.
  */
 class FileContext implements ContextInterface
 {
-
     /**
      * @var SplFileObject
      */
@@ -28,6 +26,7 @@ class FileContext implements ContextInterface
 
     /**
      * FileContext constructor.
+     *
      * @param $file
      */
     public function __construct($file)
@@ -55,8 +54,9 @@ class FileContext implements ContextInterface
     public function gets()
     {
         if ('' === $row = $this->file->fgets()) {
-            return ($this->file->eof() ? false : $this->gets());
+            return $this->file->eof() ? false : $this->gets();
         }
+
         return $row;
     }
 
@@ -69,11 +69,11 @@ class FileContext implements ContextInterface
     }
 
     /**
-     * @return integer|string
+     * @return int|string
      */
     public function line()
     {
-        return ($this->isEmpty ? 0 : ($this->file->key() + 1));
+        return $this->isEmpty ? 0 : ($this->file->key() + 1);
     }
 
     /**
