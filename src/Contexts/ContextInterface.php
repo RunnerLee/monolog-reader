@@ -20,7 +20,7 @@ interface ContextInterface
     public function current();
 
     /**
-     * @return integer|string
+     * @return int|string
      */
     public function line();
 

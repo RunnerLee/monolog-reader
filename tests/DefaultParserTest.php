@@ -9,9 +9,7 @@
 
 namespace Runner\MonologReader\Test;
 
-
 use Runner\MonologReader\Parsers\DefaultParser;
-
 
 class DefaultParserTest extends \PHPUnit_Framework_TestCase
 {
@@ -22,7 +20,7 @@ class DefaultParserTest extends \PHPUnit_Framework_TestCase
         $parser = new DefaultParser();
         $log = $parser->parse(static::ROW);
         $this->assertEquals([
-            'date', 'logger', 'level', 'message', 'context', 'extra'
+            'date', 'logger', 'level', 'message', 'context', 'extra',
         ], array_keys($log));
     }
 }

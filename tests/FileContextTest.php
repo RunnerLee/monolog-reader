@@ -11,7 +11,6 @@ use Runner\MonologReader\Contexts\FileContext;
 
 class FileContextTest extends \PHPUnit_Framework_TestCase
 {
-
     /**
      * @var FileContext
      */
@@ -31,5 +30,4 @@ class FileContextTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertSame(1, $this->context->line());
     }
-
 }

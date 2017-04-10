@@ -8,13 +8,13 @@
 namespace Runner\MonologReader\Parsers;
 
 /**
- * Interface ParserInterface
- * @package Runner\MonologReader\Parser
+ * Interface ParserInterface.
  */
 interface ParserInterface
 {
     /**
      * @param string $row
+     *
      * @return array|bool
      */
     public function parse($row);
