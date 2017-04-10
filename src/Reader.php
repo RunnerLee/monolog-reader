@@ -12,11 +12,9 @@ use Runner\MonologReader\Contexts\FileContext;
 use Runner\MonologReader\Exceptions\ParseException;
 use Runner\MonologReader\Parsers\DefaultParser;
 use Runner\MonologReader\Parsers\ParserInterface;
-use Exception;
 
 class Reader
 {
-
     /**
      * @var ContextInterface
      */
@@ -29,6 +27,7 @@ class Reader
 
     /**
      * Reader constructor.
+     *
      * @param ParserInterface|null $parser
      */
     public function __construct(ParserInterface $parser = null)
@@ -38,6 +37,7 @@ class Reader
 
     /**
      * @param string $file
+     *
      * @return $this
      */
     public function loadFile($file)
@@ -64,6 +64,7 @@ class Reader
             if (!$log = $this->parser->parse($row)) {
                 throw new ParseException("row parse failed. key: {$this->context->line()}. row: {$row}");
             }
+
             return $log;
         }
 
@@ -85,5 +86,4 @@ class Reader
     {
         return $this->context->current();
     }
-
 }

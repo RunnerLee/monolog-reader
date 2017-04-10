@@ -11,7 +11,6 @@ use Runner\MonologReader\Reader;
 
 class ReaderTest extends \PHPUnit_Framework_TestCase
 {
-
     /**
      * @var Reader
      */
@@ -19,7 +18,7 @@ class ReaderTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->reader = (new Reader())->loadFile(__DIR__ . '/fixtures/file.log');
+        $this->reader = (new Reader())->loadFile(__DIR__.'/fixtures/file.log');
     }
 
     public function testRead()
