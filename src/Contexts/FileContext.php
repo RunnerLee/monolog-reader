@@ -81,6 +81,6 @@ class FileContext implements ContextInterface
      */
     public function eof()
     {
-        return $this->file->eof();
+        return $this->isEmpty || $this->file->eof();
     }
 }
