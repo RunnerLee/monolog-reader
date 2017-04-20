@@ -14,7 +14,7 @@ namespace Runner\MonologReader\Parsers;
  */
 class DefaultParser implements ParserInterface
 {
-    const REGEX = '/\[(?P<date>.*)\] (?P<logger>[\/_a-zA-Z0-9-]+).(?P<level>\w+): (?P<message>[^\[\{]+) (?P<context>[\[\{].*[\]\}]) (?P<extra>[\[\{].*[\]\}])/';
+    const REGEX = '/\[(?P<date>.*)\]\s(?P<logger>[\/_a-zA-Z0-9-]+).(?P<level>\w+):\s(?P<message>[^\[\{]+)\s(?P<context>[\[\{].*[\]\}])\s(?P<extra>[\[\{].*[\]\}])/';
 
     /**
      * @param $row
@@ -32,8 +32,13 @@ class DefaultParser implements ParserInterface
             'logger'  => $matches['logger'],
             'level'   => $matches['level'],
             'message' => $matches['message'],
-            'context' => !empty($matches['context']) ? json_decode($matches['context'], true) : [],
-            'extra'   => !empty($matches['extra']) ? json_decode($matches['extra'], true) : [],
+            'context' => !empty($matches['context']) ? json_decode($this->encodeDoubleBackslash($matches['context']), true) : [],
+            'extra'   => !empty($matches['extra']) ? json_decode($this->encodeDoubleBackslash($matches['extra']), true) : [],
         ];
+    }
+
+    protected function encodeDoubleBackslash($string)
+    {
+        return str_replace('\\', '\\\\', $string);
     }
 }
